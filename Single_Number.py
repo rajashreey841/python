@@ -22,6 +22,10 @@ def singleNumber(nums):
                 return i
 
 if __name__ == "__main__":
-    li = input("Enter the list of integers separated by commas:") 
-    l = li.split(",")
-    print("Result:",singleNumber(l))
+    li=[]
+    i = input("Enter the list of integers separated by commas:")
+    liStr = i.split(",")
+    for i in liStr:
+        li.append(int(i))
+    print("Input List:\t",li)
+    print("Result:",singleNumber(li))
