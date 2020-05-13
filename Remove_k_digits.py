@@ -9,10 +9,7 @@ The given num does not contain any leading zero.
 Example 1:
 Input: num = "1432219", k = 3
 Output: "1219"
-Explanation: Remove the th
-
-
-ree digits 4, 3, and 2 to form the new number 1219 which is the smallest.
+Explanation: Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest.
 
 Example 2:
 Input: num = "10200", k = 1
@@ -45,6 +42,4 @@ if __name__ == "__main__":
     i = input("Enter the string:\t")
     j = int(input("Enter the value:\t"))
     print("Input:\tnum = \"",i,"\", k = ",j)
-    '''i = "1432219"
-    j = 3'''
     print("Result:\t\"",removekdigits(i,j),"\"")
