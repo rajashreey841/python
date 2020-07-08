@@ -16,7 +16,7 @@ import sys
 
 def lenghtOfLastWord(s):
     r = s.split()
-    if len(r)>=1:
+    if len(r) >= 1:
         return len(r[-1])
     else:
         return 0
