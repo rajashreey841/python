@@ -1,13 +1,14 @@
+
 '''
 problem:Hamming distance
-Example 1:
 
-Input: n1 = 9, n2 = 14
+Example 1:
+Input1: n1 = 9, n2 = 14
 Output: 3
 9 = 1001, 14 = 1110
 No. of Different bits = 3
 
-Input: n1 = 4, n2 = 8
+Input2: n1 = 4, n2 = 8
 Output: 2 
 
 Author:https://github.com/rajashreey841
