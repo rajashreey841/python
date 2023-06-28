@@ -27,4 +27,5 @@ if __name__ == "__main__":
     j = input("Enter the string\t")
     print("Input:\ta =\"",i ,"\"","b =\"",j,"\"")
     print("Result:",addBinary(i,j))
+q
 
