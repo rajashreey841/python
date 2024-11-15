@@ -8,5 +8,6 @@ Names = input("Enter the people name: ")
 separate =  Names.split()
 print("list= ", separate)
 result = random.randint(0,len(separate)-1)
+print(f"Index value: {result}\n {separate[result]} will pay the bill")
 
-print(f"Index value: {result}\n Final Name = {separate[result]}")
+# or use choice function :--> print(random.choice(separate))
