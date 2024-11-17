@@ -5,5 +5,5 @@ res = heights.split()
 sum = 0
 for i in res:
     sum += int(i)
-print(sum//len(res))
+print("Average Height:" ,sum//len(res))
 
