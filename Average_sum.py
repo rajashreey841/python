@@ -2,8 +2,12 @@
 
 heights = input("Enter the Heights: ")
 res = heights.split()
-sum = 0
+s = 0
+count =0 
+for j in res:
+    count = count+1
+print(count)
 for i in res:
-    sum += int(i)
-print("Average Height:" ,sum//len(res))
+    s += int(i)
+print("Average Height:" ,s//count)
 
