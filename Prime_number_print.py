@@ -2,7 +2,7 @@
 
 def prime_number(num):
     for i in range(num):
-        if i >0:
+        if i>0:
             for j in range(2,i):
                 if i%j==0:
                     break
