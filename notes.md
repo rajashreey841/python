@@ -13,6 +13,7 @@
 - [Data Types](#data-types)
 - [Conditional Statements](#conditional-statements)
 - [Loops](#loops)
+- [Functions](#functions)
 
 
 ## Input and Output 
@@ -246,3 +247,253 @@ This document summarizes all major types of input and output declarations in Pyt
 | **15. `while` with `break`**      | Exits when condition met                           | `i = 0\nwhile i < 5:\n    if i == 3: break\n    print(i)\n    i += 1`<br>**Output:** 0 1 2         |
 | **16. `while`-`else`**            | `else` executes if no break                        | `i = 0\nwhile i < 2:\n    print(i)\n    i += 1\nelse:\n    print("Done")`<br>**Output:** 0 1 Done  |
 | **17. Simulated `do-while` Loop** | Loop runs **at least once**, then checks condition | `i = 0\nwhile True:\n    print(i)\n    i += 1\n    if i >= 3:\n        break`<br>**Output:** 0 1 2 |
+
+# Functions
+
+| **Concept**                       | **Explanation**                                             | **Example Code**                                                                                                                                                                                                                   |
+| --------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Basic Python Function**      | Defines reusable blocks of code using `def`.                | `def greet():`<br>`    print("Hello!")`<br>`greet()`                                                                                                                                                                               |
+| **2. Pass Statement in Function** | `pass` is used when the function has no implementation yet. | `def future_function():`<br>`    pass`                                                                                                                                                                                             |
+| **3. Global and Local Variables** | Local vars exist inside a function; global vars outside.    | `x = 10`<br>`def show():`<br>`    x = 5`<br>`    print("Local x:", x)`<br>`show()`<br>`print("Global x:", x)`                                                                                                                      |
+| **4. Recursion in Python**        | A function calling itself to solve smaller subproblems.     | `def factorial(n):`<br>`    if n == 1:`<br>`        return 1`<br>`    return n * factorial(n - 1)`<br>`print(factorial(5))`                                                                                                        |
+| **5. *args in Function**         | Used to pass variable number of non-keyworded arguments.    | `def add(*numbers):`<br>`    total = 0`<br>`    for num in numbers:`<br>`        total += num`<br>`    return total`<br>`print(add(1, 2, 3))`                                                                                      |
+| \*\*6. **kwargs in Function**     | Used to pass variable number of keyworded arguments.        | `def print_info(**kwargs):`<br>`    for key, value in kwargs.items():`<br>`        print(key, ":", value)`<br>`print_info(name="Raj", age=25)`                                                                                     |
+| **7. 'self' as Default Argument** | Refers to the instance of the class in object methods.      | `class Person:`<br>`    def greet(self):`<br>`        print("Hello from instance")`<br>`p = Person()`<br>`p.greet()`                                                                                                               |
+| **8. First-Class Function**       | Functions can be passed as arguments, returned, assigned.   | `def shout(text):`<br>`    return text.upper()`<br>`def greet(func):`<br>`    print(func("hello"))`<br>`greet(shout)`                                                                                                              |
+| **9. Lambda Function**            | Small anonymous function using `lambda`.                    | `square = lambda x: x * x`<br>`print(square(5))`                                                                                                                                                                                   |
+| **10. Map Function**              | Applies a function to every item of an iterable.            | `nums = [1, 2, 3, 4]`<br>`squared = list(map(lambda x: x*x, nums))`<br>`print(squared)`                                                                                                                                            |
+| **11. Reduce Function**           | Applies rolling computation to items (from functools).      | `from functools import reduce`<br>`nums = [1, 2, 3, 4]`<br>`product = reduce(lambda x, y: x * y, nums)`<br>`print(product)`                                                                                                        |
+| **12. Filter Function**           | Filters elements based on a condition.                      | `nums = [1, 2, 3, 4, 5]`<br>`even = list(filter(lambda x: x % 2 == 0, nums))`<br>`print(even)`                                                                                                                                     |
+| **13. Inner Function**            | Function defined inside another function.                   | `def outer():`<br>`    def inner():`<br>`        print("Inner function")`<br>`    inner()`<br>`outer()`                                                                                                                            |
+| **14. Decorators**                | Wraps a function to extend its behavior.                    | `def decorator(func):`<br>`    def wrapper():`<br>`        print("Before")`<br>`        func()`<br>`        print("After")`<br>`    return wrapper`<br>`@decorator`<br>`def say_hello():`<br>`    print("Hello")`<br>`say_hello()` |
+
+# Strings
+
+| **Topic**                                   | **Description**                             | **Example Code**                                                                       | **Output**                             |
+| ------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------- |
+| **1. String Slicing**                       | Extract a portion using `[start:stop:step]` | `text = "Python"`<br>`print(text[1:4])`                                                | `yth`                                  |
+|                                             | Negative indexing                           | `print(text[-4:-1])`                                                                   | `tho`                                  |
+| **2. f-Strings**                            | Embed variables inside strings              | `name = "Raj"`<br>`age = 25`<br>`print(f"My name is {name} and I am {age} years old")` | `My name is Raj and I am 25 years old` |
+| **3. String Comparison**                    | Compare strings using `==`, `<`, `>`        | `a = "apple"`<br>`b = "banana"`<br>`print(a == b)`<br>`print(a < b)`                   | `False`<br>`True`                      |
+| **4. Useful String Functions**              | `.lower()` to lowercase                     | `"HeLLo".lower()`                                                                      | `hello`                                |
+|                                             | `.upper()` to uppercase                     | `"python".upper()`                                                                     | `PYTHON`                               |
+|                                             | `.strip()` to remove whitespace             | `" hello ".strip()`                                                                    | `hello`                                |
+|                                             | `.replace()` to replace characters          | `"hi world".replace("hi", "hello")`                                                    | `hello world`                          |
+|                                             | `.find()` to find index                     | `"hello".find("e")`                                                                    | `1`                                    |
+|                                             | `.startswith()` to check prefix             | `"hello".startswith("he")`                                                             | `True`                                 |
+|                                             | `.endswith()` to check suffix               | `"test.py".endswith(".py")`                                                            | `True`                                 |
+| **5. Convert int to string**                | Use `str()` function                        | `num = 123`<br>`s = str(num)`<br>`print(s)`                                            | `123`                                  |
+| **6. Convert string to int**                | Use `int()` function                        | `s = "456"`<br>`num = int(s)`<br>`print(num + 1)`                                      | `457`                                  |
+| **7. String Concatenation**                 | Using `+` operator                          | `a = "Hi"`<br>`b = "There"`<br>`print(a + b)`                                          | `HiThere`                              |
+| **8. Split string into list of characters** | Use `list()`                                | `text = "hello"`<br>`print(list(text))`                                                | `['h', 'e', 'l', 'l', 'o']`            |
+| **9. Iterate over characters**              | Use a for loop                              | `for c in "dog":`<br>`    print(c)`                                                    | `d`<br>`o`<br>`g`                      |
+| **10. String to List**                      | Using `split()` method                      | `s = "a b c"`<br>`print(s.split())`                                                    | `['a', 'b', 'c']`                      |
+| **11. List to String**                      | Use `"".join()`                             | `lst = ['a', 'b', 'c']`<br>`print("".join(lst))`                                       | `abc`                                  |
+| **12. String Comparison**                   | Again, for clarity                          | `print("abc" == "ABC")`                                                                | `False`                                |
+| **13. String Formatting**                   | `.format()` method                          | `"{} is {}".format("Python", "cool")`                                                  | `Python is cool`                       |
+|                                             | `%` operator formatting                     | `"Score: %d" % 90`                                                                     | `Score: 90`                            |
+| **14. String Methods**                      | `.title()` capitalizes each word            | `"my name".title()`                                                                    | `My Name`                              |
+|                                             | `.capitalize()` first letter capital        | `"hello".capitalize()`                                                                 | `Hello`                                |
+| **15. String Exercise**                     | Reverse a string                            | `s = "apple"`<br>`print(s[::-1])`                                                      | `elppa`                                |
+| **16. Escape Characters**                   | Use `\\` for backslash                      | `print("Backslash: \\\\")`                                                             | `Backslash: \\`                        |
+|                                             | `\'` single quote inside single quotes      | `print('It\\'s fine')`                                                                 | `It's fine`                            |
+|                                             | `\"` double quote inside double quotes      | `print("He said, \\\"Hi\\\"")`                                                         | `He said, "Hi"`                        |
+|                                             | `\t` tab space                              | `print("Name:\tRaj")`                                                                  | `Name:	Raj`                            |
+|--
+| **Raw strings `r"string"`**                               | Raw strings treat backslashes `\` as literal characters, useful for Windows paths and regex patterns. |
+|                                                           | `path = r"C:\Users\Raj\Documents"`                                                                    |
+|                                                           | `print(path)` # Output: C:\Users\Raj\Documents                                                        |
+|                                                           | `print("C:\\Users\\Raj\\Documents")` # same output                                                    |
+| **Multiline strings `"""string"""`**                      | Used to create strings spanning multiple lines, preserving line breaks and indentation.               |
+|                                                           | `text = """This is line 1`                                                                            |
+|                                                           | `This is line 2`                                                                                      |
+|                                                           | `This is line 3"""`                                                                                   |
+|                                                           | `print(text)`                                                                                         |
+|                                                           | Output:                                                                                               |
+|                                                           | `This is line 1`                                                                                      |
+|                                                           | `This is line 2`                                                                                      |
+|                                                           | `This is line 3`                                                                                      |
+| **String encoding and decoding `.encode()`, `.decode()`** | Strings are Unicode; `.encode()` converts to bytes; `.decode()` converts bytes back to strings.       |
+|                                                           | `s = "Hello"`                                                                                         |
+|                                                           | `b = s.encode("utf-8")`                                                                               |
+|                                                           | `print(b)` # b'Hello'                                                                                 |
+|                                                           | `s2 = b.decode("utf-8")`                                                                              |
+|                                                           | `print(s2)` # Hello                                                                                   |
+| **Regular expressions with `re` module**                  | Used for pattern matching and text processing with powerful regex features.                           |
+|                                                           | `import re`                                                                                           |
+|                                                           | `text = "The rain in Spain"`                                                                          |
+|                                                           | `result = re.findall(r"\bS\w+", text)`  # Finds words starting with 'S'                               |
+|                                                           | `print(result)` # \['Spain']                                                                          |
+| **Immutable nature of strings**                           | Strings cannot be changed after creation. Any modification returns a new string.                      |
+|                                                           | `s = "hello"`                                                                                         |
+|                                                           | `# s[0] = 'H'  # Error: TypeError`                                                                    |
+|                                                           | `s2 = "H" + s[1:]`                                                                                    |
+|                                                           | `print(s2)` # Hello                                                                                   |
+| **String translation and mapping `.translate()`**         | Replaces characters according to a translation table created by `.maketrans()`.                       |
+|                                                           | `table = str.maketrans("aeiou", "12345")`  # Map vowels to digits                                     |
+|                                                           | `s = "hello world"`                                                                                   |
+|                                                           | `print(s.translate(table))` # h2ll4 w4rld                                                             |
+
+# List
+
+| Category            | Program Type              | Example Code                                   |
+| ------------------- | ------------------------- | ---------------------------------------------- |
+| **List Creation**   | Create List with Elements | `my_list = [1, 2, 3, 4, 5]`                    |
+|                     | Empty List                | `empty_list = []`                              |
+|                     | Using range()             | `range_list = list(range(1, 6))`               |
+| **List Add/Append** | Append Element            | `my_list.append(6)`                            |
+|                     | Insert at Index           | `my_list.insert(2, 10)`                        |
+|                     | Extend List               | `my_list.extend([7, 8])`                       |
+| **List Removal**    | Remove by Value           | `my_list.remove(2)`                            |
+|                     | Remove by Index           | `del my_list[0]`                               |
+|                     | Pop Element               | `last = my_list.pop()`                         |
+| **List Count**      | Count Occurrences         | `my_list.count(3)`                             |
+|                     | Length of List            | `len(my_list)`                                 |
+| **List Checking**   | Element Exists            | `if 4 in my_list:`<br>`    print("Exists")`    |
+|                     | List is Empty             | `if not my_list:`<br>`    print("Empty")`      |
+| **List with Dict**  | List of Dicts             | `users = [{'name': 'Alice'}, {'name': 'Bob'}]` |
+|                     | Access Value              | `print(users[0]['name'])`                      |
+| **List of List**    | Create 2D List            | `matrix = [[1, 2], [3, 4]]`                    |
+|                     | Access Element            | `val = matrix[1][0]`                           |
+| **List with Set**   | Convert List to Set       | `my_set = set(my_list)`                        |
+|                     | Remove Duplicates         | `unique = list(set(my_list))`                  |
+| **List with Tuple** | List of Tuples            | `pairs = [(1, 'a'), (2, 'b')]`                 |
+|                     | Access Tuple Element      | `print(pairs[0][1])`                           |
+| **List Methods**    | Sort List                 | `my_list.sort()`                               |
+|                     | Reverse List              | `my_list.reverse()`                            |
+|                     | Index of Element          | `my_list.index(3)`                             |
+|                     | Clear List                | `my_list.clear()`                              |
+| **List Slicing**    | Slice Elements            | `slice = my_list[1:4]`                         |
+|                     | Reverse with Slicing      | `reversed_list = my_list[::-1]`                |
+| List Comprehensions        | Creating lists using concise syntax                   | `[x*x for x in range(5)]`                      |
+| Nested List Comprehensions | Comprehensions inside comprehensions                  | `[[i*j for j in range(3)] for i in range(4)]`  |
+| List Copying               | Shallow vs deep copy                                  | `copy_list = my_list[:]` or `import copy`      |
+| List Iteration             | Looping through list elements                         | `for item in my_list: print(item)`             |
+| List Filtering             | Using `filter()` or list comprehension with condition | `[x for x in my_list if x > 3]`                |
+| Sorting with Key Function  | Sorting with custom keys                              | `my_list.sort(key=lambda x: x%2)`              |
+| List to String Conversion  | Joining list elements into a string                   | `",".join(["a", "b", "c"])`                    |
+| Enumerate                  | Get index and value during iteration                  | `for idx, val in enumerate(my_list):`          |
+| List Unpacking             | Assign multiple list elements to variables            | `a, b, *rest = [1, 2, 3, 4]`                   |
+| Memory Considerations      | Understanding list memory usage and efficiency        | Use `sys.getsizeof()` to check                 |
+| Using `any()` and `all()`  | Check conditions across list elements                 | `any(x > 5 for x in my_list)`                  |
+| List Flattening            | Convert nested lists into a single list               | Using loops or itertools                       |
+| Using `zip()` with Lists   | Combine multiple lists element-wise                   | `list(zip(list1, list2))`                      |
+| List Performance Tips      | When to use lists vs other data structures            | For example, prefer sets for membership checks |
+
+# Tuples
+
+| Topic                        | Description                                                | Example Code (line by line)                                      |
+| ---------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| Creating tuples              | How to create tuples including empty and multiple values   | `t1 = ()`<br>`t2 = (1, 2, 3)`<br>`t3 = 4, 5, 6`                  |
+| Single-element tuple         | Creating a tuple with only one element needs a comma       | `t = (7,)`<br>`print(type(t))`                                   |
+| Accessing elements           | Access tuple elements by index                             | `t = (10, 20, 30)`<br>`print(t[0])`                              |
+| Negative indexing            | Access elements from the end                               | `print(t[-1])`                                                   |
+| Slicing tuples               | Extract a portion of the tuple                             | `print(t[1:3])`                                                  |
+| Tuple unpacking              | Assign tuple elements to variables                         | `a, b, c = t`<br>`print(a, b, c)`                                |
+| Ignoring values in unpacking | Use underscore to ignore certain elements during unpacking | `a, _, c = t`                                                    |
+| Nested tuples                | Tuples inside tuples and accessing nested elements         | `nested = (1, (2, 3), 4)`<br>`print(nested[1][0])`               |
+| Immutable nature             | Tuples cannot be changed after creation                    | `t[0] = 10  # Raises error`                                      |
+| Tuple methods                | Use built-in methods like count and index                  | `t = (1, 2, 2, 3)`<br>`print(t.count(2))`<br>`print(t.index(3))` |
+| Tuple concatenation          | Combine two tuples into one                                | `t1 = (1, 2)`<br>`t2 = (3, 4)`<br>`t3 = t1 + t2`                 |
+| Repeating tuples             | Repeat the elements of a tuple multiple times              | `t = (1, 2) * 3`                                                 |
+| Tuple length                 | Get the number of elements in a tuple                      | `print(len(t))`                                                  |
+| Check element in tuple       | Check if an element exists in the tuple                    | `print(3 in t)`                                                  |
+| Iterating over tuples        | Loop through tuple elements                                | `for item in t:`<br>`    print(item)`                            |
+| Tuple as dictionary key      | Tuples can be used as keys in dictionaries (immutable)     | `d = { (1, 2): "value" }`                                        |
+| Tuple conversion             | Convert lists to tuples and vice versa                     | `list_t = list(t)`<br>`tuple_l = tuple([1, 2, 3])`               |
+| Tuple vs List differences    | Tuples are immutable; lists are mutable                    | (Explanation only - no code needed)                              |
+| Using tuples in functions    | Pass tuples as arguments and return values                 | `def f(t):`<br>`    return t[0]`<br>`print(f((10, 20)))`         |
+| Tuple with mixed data types  | Tuples can hold different data types                       | `t = (1, "hello", 3.14, True)`                                   |
+
+# Dictionary
+
+| Topic                                | Description                                                                                  | Code Example                                                                                                                 |                                                                                 |      |
+| ------------------------------------ | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---- |
+| **Dictionary Comprehension**         | Create dictionaries using expressions in a concise way                                       | `squares = {x: x*x for x in range(1,6)}`<br>`print(squares)`                                                                 |                                                                                 |      |
+|                                      | Conditional comprehension                                                                    | `even_squares = {x: x*x for x in range(1,11) if x % 2 == 0}`<br>`print(even_squares)`                                        |                                                                                 |      |
+| **Dictionary Methods**               | Common methods like `keys()`, `values()`, `items()`, `get()`, `pop()`, `update()`, `clear()` | `d = {'a':1, 'b':2}`<br>`print(d.keys())`<br>`print(d.get('a'))`<br>`d.update({'c':3})`<br>`print(d)`                        |                                                                                 |      |
+| **Dictionary Creation**              | Different ways to create dictionaries                                                        | `d1 = {}`<br>`d2 = dict()`<br>`d3 = dict(a=1, b=2)`<br>`d4 = dict([('x',10), ('y',20)])`                                     |                                                                                 |      |
+| **Dictionary Add/Append**            | Add or update key-value pairs                                                                | `d = {}`<br>`d['key'] = 'value'`<br>`d.update({'new_key': 100})`<br>`print(d)`                                               |                                                                                 |      |
+| **Dictionary Removal**               | Remove keys using `pop()`, `popitem()`, `del`, `clear()`                                     | `d = {'a':1,'b':2}`<br>`d.pop('a')`<br>`del d['b']`<br>`d.clear()`<br>`print(d)`                                             |                                                                                 |      |
+| **Dictionary Access**                | Access values by key, with or without default values                                         | `d = {'a':1}`<br>`print(d['a'])`<br>`print(d.get('b', 'Not Found'))`                                                         |                                                                                 |      |
+| **Dictionary Conversion**            | Convert dictionary keys, values or items to lists, sets, tuples                              | `d = {'a':1, 'b':2}`<br>`keys_list = list(d.keys())`<br>`values_set = set(d.values())`                                       |                                                                                 |      |
+| **Dictionary with Lists**            | Store lists as values or create dictionary from lists                                        | `d = {'nums': [1,2,3]}`<br>`print(d['nums'])`<br>`keys = ['a','b']`<br>`values = [10, 20]`<br>`d2 = dict(zip(keys, values))` |                                                                                 |      |
+| **Dictionary with String/Tuple/Set** | Use strings, tuples or sets as keys or values                                                | `d = {('x', 'y'): 1}`<br>`print(d[('x','y')])`<br>`d2 = {frozenset([1,2]): 'set_key'}`                                       |                                                                                 |      |
+| **Merge Dictionaries**               | Combine dictionaries using `update()` or \`                                                  | \` operator (Python 3.9+)                                                                                                    | `d1 = {'a':1}`<br>`d2 = {'b':2}`<br>`d1.update(d2)`<br>`print(d1)`<br>\`d3 = d1 | d2\` |
+| **Nested Dictionaries**              | Dictionaries inside dictionaries                                                             | `d = {'person': {'name': 'Alice', 'age': 25}}`<br>`print(d['person']['name'])`                                               |                                                                                 |      |
+| **Check Key Existence**              | Use `in` operator                                                                            | `d = {'a':1}`<br>`if 'a' in d:`<br>   `print('Key exists')`                                                                  |                                                                                 |      |
+| **Iterate Over Dictionary**          | Loop through keys, values, or items                                                          | `for k in d:`<br>   `print(k, d[k])`<br>`for k,v in d.items():`<br>   `print(k,v)`                                           |                                                                                 |      |
+| **Copy Dictionary**                  | Copy dictionary with `copy()` or `dict()`                                                    | `d1 = {'a':1}`<br>`d2 = d1.copy()`<br>`print(d2)`                                                                            |                                                                                 |      |
+| **Default Dictionary**               | Use `collections.defaultdict` to avoid key errors                                            | `from collections import defaultdict`<br>`dd = defaultdict(int)`<br>`dd['x'] += 1`<br>`print(dd)`                            |                                                                                 |      |
+
+# Sets
+| Topic                                    | Explanation                                                                                           | Example                                                                                                   |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **What is a Set?**                       | A set is an unordered collection of unique elements.                                                  | `python<br>my_set = {1, 2, 3}<br>print(my_set)  # Output: {1, 2, 3}`                                      |
+| **Creating a Set**                       | Use `{}` with comma-separated values or `set()` function.                                             | `python<br>set1 = {1, 2, 3}<br>set2 = set([4, 5, 6])<br>print(set1)<br>print(set2)`                       |
+| **Empty Set**                            | `{}` creates an empty dict, so use `set()` for empty set.                                             | `python<br>empty = set()<br>print(empty)  # Output: set()`                                                |
+| **Adding Elements**                      | Use `.add()` method to add one element.                                                               | `python<br>s = {1, 2}<br>s.add(3)<br>print(s)  # Output: {1, 2, 3}`                                       |
+| **Updating Set**                         | Use `.update()` to add multiple elements from iterable.                                               | `python<br>s = {1, 2}<br>s.update([3, 4])<br>print(s)  # Output: {1, 2, 3, 4}`                            |
+| **Removing Elements**                    | `.remove(elem)` removes elem, raises error if not found.<br>`.discard(elem)` removes elem if present. | `python<br>s = {1, 2, 3}<br>s.remove(2)<br>print(s)  # {1, 3}<br>s.discard(4)<br>print(s)  # {1, 3}`      |
+| **Set Operations: Union**                | Combines all unique elements from both sets.                                                          | `python<br>a = {1, 2}<br>b = {2, 3}<br>print(a.union(b))  # {1, 2, 3}`                                    |
+| **Set Operations: Intersection**         | Elements common to both sets.                                                                         | `python<br>a = {1, 2, 3}<br>b = {2, 3, 4}<br>print(a.intersection(b))  # {2, 3}`                          |
+| **Set Operations: Difference**           | Elements in first set but not in second.                                                              | `python<br>a = {1, 2, 3}<br>b = {2, 3}<br>print(a.difference(b))  # {1}`                                  |
+| **Set Operations: Symmetric Difference** | Elements in either set but not both.                                                                  | `python<br>a = {1, 2, 3}<br>b = {2, 3, 4}<br>print(a.symmetric_difference(b))  # {1, 4}`                  |
+| **Subset and Superset**                  | `.issubset()` checks if all elements of one set are in another.<br>`.issuperset()` is reverse.        | `python<br>a = {1, 2}<br>b = {1, 2, 3}<br>print(a.issubset(b))  # True<br>print(b.issuperset(a))  # True` |
+| **Set Comprehension**                    | Create sets with comprehensions like lists.                                                           | `python<br>squares = {x*x for x in range(5)}<br>print(squares)  # {0, 1, 4, 9, 16}`                       |
+| **Frozen Set**                           | Immutable version of set, cannot add or remove elements.                                              | `python<br>f = frozenset([1, 2, 3])<br>print(f)<br># f.add(4)  # Error`                                   |
+| **Iterating Over Set**                   | Loop through elements in any order.                                                                   | `python<br>s = {1, 2, 3}<br>for elem in s:<br>    print(elem)`                                            |
+| **Length of Set**                        | Use `len()` to get the number of elements.                                                            | `python<br>s = {1, 2, 3}<br>print(len(s))  # 3`                                                           |
+| **Check Membership**                     | Use `in` keyword to check if element is in set.                                                       | `python<br>s = {1, 2, 3}<br>print(2 in s)  # True<br>print(5 in s)  # False`                              |
+
+# Array
+
+| Topic                                                | Explanation & Code Example                                                                                                                                              |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Declaring an Array in Python                         | Python has `array` module for typed arrays. Example: `import array as arr a = arr.array('i', [1, 2, 3]) print(a)`                                                       |
+| Difference between Array and List in Python          | Arrays are typed, lists are heterogeneous and more flexible. Example: `import array as arr a = arr.array('i', [1,2]) l = [1, 'two', 3.0] print(type(a)) print(type(l))` |
+| Python Array length                                  | Use `len()` function. Example: `import array as arr a = arr.array('i', [10,20,30]) print(len(a))`                                                                       |
+| Numpy Arrays                                         | Powerful numeric arrays with more features. Example: `import numpy as np a = np.array([1,2,3]) print(a) print(type(a))`                                                 |
+| Python Unpack Array                                  | Unpack elements to variables. Example: `import array as arr a = arr.array('i', [5,10,15]) x, y, z = a print(x) print(y) print(z)`                                       |
+| Python remove Array item                             | Use `remove()` or `pop()`. Example: `import array as arr a = arr.array('i', [1,2,3,2]) a.remove(2) print(a) a.pop(1) print(a)`                                          |
+| How to add element to Array in Python                | Use `append()` or `insert()`. Example: `import array as arr a = arr.array('i', [1,2,3]) a.append(4) print(a) a.insert(1, 5) print(a)`                                   |
+| Find element in Array in Python                      | Use `in` keyword. Example: `import array as arr a = arr.array('i', [1,2,3]) print(2 in a) print(5 in a)`                                                                |
+| Find Common elements in two Arrays in Python         | Convert to sets and intersect. Example: `import array as arr a = arr.array('i', [1,2,3]) b = arr.array('i', [2,3,4]) common = set(a).intersection(b) print(common)`     |
+| How to pass an Array to a Function in Python         | Pass as parameter normally. Example: `import array as arr def print_array(ar): for i in ar: print(i) a = arr.array('i', [1,2,3]) print_array(a)`                        |
+| How to create String Array in Python                 | Use lists for strings. Example: `str_array = ["apple", "banana", "cherry"] print(str_array)`                                                                            |
+| Multidimensional Arrays                              | Use nested lists or numpy. Example numpy: `import numpy as np a = np.array([[1,2],[3,4]]) print(a)`                                                                     |
+| Array Slicing                                        | Extract parts of array. Example: `import array as arr a = arr.array('i', [10,20,30,40]) print(a[1:3])`                                                                  |
+| Array Iteration                                      | Loop over elements. Example: `import array as arr a = arr.array('i', [1,2,3]) for i in a: print(i)`                                                                     |
+| Array Concatenation                                  | Combine arrays. Example: `import array as arr a = arr.array('i', [1,2]) b = arr.array('i', [3,4]) c = arr.array('i', a + b) print(c)`                                   |
+| Array Sorting                                        | Sort elements in place. Example: `import array as arr a = arr.array('i', [3,1,2]) a = arr.array('i', sorted(a)) print(a)`                                               |
+| Array Copying                                        | Use slicing or `copy` module. Example: `import array as arr import copy a = arr.array('i', [1,2,3]) b = a[:] c = copy.deepcopy(a)`                                      |
+| Memory Usage of Arrays vs Lists                      | Arrays use less memory as they store homogeneous data, lists are flexible but use more memory (no direct code example).                                                 |
+| Array Broadcasting (Numpy specific)                  | Numpy allows operations on different shapes. Example: `import numpy as np a = np.array([1,2,3]) b = 5 print(a + b)`                                                     |
+| Array Reshaping (Numpy specific)                     | Change shape without changing data. Example: `import numpy as np a = np.array([1,2,3,4,5,6]) b = a.reshape(2,3) print(b)`                                               |
+| Array Data Types and Typecodes (array module)        | `'i'` for int, `'f'` for float etc. Example: `import array as arr a = arr.array('f', [1.0, 2.0, 3.0]) print(a)`                                                         |
+| Performance Comparison: Array vs List vs Numpy Array | Numpy arrays are fastest for numeric computations, arrays (`array` module) save memory vs lists but less flexible.                                                      |
+| Using List Comprehensions to Create Arrays           | Create arrays/lists concisely. Example: `squares = [x*x for x in range(5)] print(squares)`                                                                              |
+| Array Filtering                                      | Extract elements meeting condition. Example: `a = [1,2,3,4,5] filtered = [x for x in a if x > 2] print(filtered)`                                                       |
+| Handling Empty Arrays                                | Initialize empty arrays. Example: `import array as arr a = arr.array('i', []) print(a)`                                                                                 |
+| Error Handling with Arrays                           | Catch errors like `IndexError`. Example: `import array as arr a = arr.array('i', [1,2]) try: print(a[3]) except IndexError: print("Index out of range")`                |
+
+# List Comprehension
+
+| **Topic**                     | **Explanation**                                  | **Example**                                                                                                                                             |
+| ----------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Basic Syntax**              | Short way to create a new list from an iterable. | numbers = \[1, 2, 3, 4, 5]<br>square = \[x \* x for x in numbers]<br>print(square)  # Output: \[1, 4, 9, 16, 25]                                        |
+| **With Condition (if)**       | Include condition to filter elements.            | numbers = \[1, 2, 3, 4, 5]<br>even = \[x for x in numbers if x % 2 == 0]<br>print(even)  # Output: \[2, 4]                                              |
+| **With if-else**              | Apply transformation based on condition.         | nums = \[1, 2, 3, 4, 5]<br>labels = \['Even' if x % 2 == 0 else 'Odd' for x in nums]<br>print(labels)  # Output: \['Odd', 'Even', 'Odd', 'Even', 'Odd'] |
+| **Nested List Comprehension** | For 2D lists or matrix operations.               | matrix = \[\[1, 2], \[3, 4]]<br>flat = \[num for row in matrix for num in row]<br>print(flat)  # Output: \[1, 2, 3, 4]                                  |
+| **Multiple if Conditions**    | Filter with multiple conditions.                 | nums = \[1, 2, 3, 4, 5, 6]<br>filtered = \[x for x in nums if x > 2 if x < 6]<br>print(filtered)  # Output: \[3, 4, 5]                                  |
+| **Using Functions**           | Call functions inside list comprehension.        | def square(x):<br>  return x \* x<br>nums = \[1, 2, 3]<br>squares = \[square(n) for n in nums]<br>print(squares)  # Output: \[1, 4, 9]                  |
+| **With Strings**              | List comprehension on strings.                   | text = "hello"<br>chars = \[c.upper() for c in text]<br>print(chars)  # Output: \['H', 'E', 'L', 'L', 'O']                                              |
+| **Flatten Nested List**       | Useful for converting 2D to 1D.                  | nested = \[\[1, 2], \[3, 4], \[5, 6]]<br>flat = \[item for sublist in nested for item in sublist]<br>print(flat)  # Output: \[1, 2, 3, 4, 5, 6]         |
+| **List of Tuples**            | Create tuples directly.                          | result = \[(x, x\*\*2) for x in range(5)]<br>print(result)  # Output: \[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16)]                                        |
+| **Using enumerate()**         | Get index and value.                             | names = \['Alice', 'Bob']<br>indexed = \[f'{i}-{name}' for i, name in enumerate(names)]<br>print(indexed)  # Output: \['0-Alice', '1-Bob']              |
+| **Set Comprehension**         | Same as list comp but with `{}`                  | nums = \[1, 2, 2, 3]<br>unique = {x for x in nums}<br>print(unique)  # Output: {1, 2, 3}                                                                |
+| **Dict Comprehension**        | Create dictionaries using comprehension.         | keys = \['a', 'b']<br>vals = \[1, 2]<br>mydict = {k: v for k, v in zip(keys, vals)}<br>print(mydict)  # Output: {'a': 1, 'b': 2}                        |
+| **Using range()**             | Common with numbers.                             | squares = \[x \* x for x in range(5)]<br>print(squares)  # Output: \[0, 1, 4, 9, 16]                                                                    |
+| **With multiple loops**       | Use nested loops in one line.                    | pairs = \[(x, y) for x in \[1, 2] for y in \[3, 4]]<br>print(pairs)  # Output: \[(1, 3), (1, 4), (2, 3), (2, 4)]                                        |
+| **Filter None or Empty**      | Clean up data.                                   | data = \['a', '', None, 'b']<br>cleaned = \[d for d in data if d]<br>print(cleaned)  # Output: \['a', 'b']                                              |
+| **Conditional Replace**       | Replace specific values.                         | nums = \[0, 1, 2, 0, 3]<br>replaced = \[x if x != 0 else -1 for x in nums]<br>print(replaced)  # Output: \[-1, 1, 2, -1, 3]                             |
