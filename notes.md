@@ -14,6 +14,13 @@
 - [Conditional Statements](#conditional-statements)
 - [Loops](#loops)
 - [Functions](#functions)
+- [Strings](#strings)
+- [List](#list)
+- [Tuples](#tuples)
+- [Dictionary](#dictionary)
+- [Sets](#sets)
+- [Arrays](arrays)
+- [List Comprehension](#list-comprehension)
 
 
 ## Input and Output 
@@ -256,8 +263,8 @@ This document summarizes all major types of input and output declarations in Pyt
 | **2. Pass Statement in Function** | `pass` is used when the function has no implementation yet. | `def future_function():`<br>`    pass`                                                                                                                                                                                             |
 | **3. Global and Local Variables** | Local vars exist inside a function; global vars outside.    | `x = 10`<br>`def show():`<br>`    x = 5`<br>`    print("Local x:", x)`<br>`show()`<br>`print("Global x:", x)`                                                                                                                      |
 | **4. Recursion in Python**        | A function calling itself to solve smaller subproblems.     | `def factorial(n):`<br>`    if n == 1:`<br>`        return 1`<br>`    return n * factorial(n - 1)`<br>`print(factorial(5))`                                                                                                        |
-| **5. *args in Function**         | Used to pass variable number of non-keyworded arguments.    | `def add(*numbers):`<br>`    total = 0`<br>`    for num in numbers:`<br>`        total += num`<br>`    return total`<br>`print(add(1, 2, 3))`                                                                                      |
-| \*\*6. **kwargs in Function**     | Used to pass variable number of keyworded arguments.        | `def print_info(**kwargs):`<br>`    for key, value in kwargs.items():`<br>`        print(key, ":", value)`<br>`print_info(name="Raj", age=25)`                                                                                     |
+| **5. \*args in Function**         | Used to pass variable number of non-keyworded arguments.    | `def add(*numbers):`<br>`    total = 0`<br>`    for num in numbers:`<br>`        total += num`<br>`    return total`<br>`print(add(1, 2, 3))`                                                                                      |
+| **6. \*\*kwargs in Function**     | Used to pass variable number of keyworded arguments.        | `def print_info(**kwargs):`<br>`    for key, value in kwargs.items():`<br>`        print(key, ":", value)`<br>`print_info(name="Raj", age=25)`                                                                                     |
 | **7. 'self' as Default Argument** | Refers to the instance of the class in object methods.      | `class Person:`<br>`    def greet(self):`<br>`        print("Hello from instance")`<br>`p = Person()`<br>`p.greet()`                                                                                                               |
 | **8. First-Class Function**       | Functions can be passed as arguments, returned, assigned.   | `def shout(text):`<br>`    return text.upper()`<br>`def greet(func):`<br>`    print(func("hello"))`<br>`greet(shout)`                                                                                                              |
 | **9. Lambda Function**            | Small anonymous function using `lambda`.                    | `square = lambda x: x * x`<br>`print(square(5))`                                                                                                                                                                                   |
@@ -266,6 +273,37 @@ This document summarizes all major types of input and output declarations in Pyt
 | **12. Filter Function**           | Filters elements based on a condition.                      | `nums = [1, 2, 3, 4, 5]`<br>`even = list(filter(lambda x: x % 2 == 0, nums))`<br>`print(even)`                                                                                                                                     |
 | **13. Inner Function**            | Function defined inside another function.                   | `def outer():`<br>`    def inner():`<br>`        print("Inner function")`<br>`    inner()`<br>`outer()`                                                                                                                            |
 | **14. Decorators**                | Wraps a function to extend its behavior.                    | `def decorator(func):`<br>`    def wrapper():`<br>`        print("Before")`<br>`        func()`<br>`        print("After")`<br>`    return wrapper`<br>`@decorator`<br>`def say_hello():`<br>`    print("Hello")`<br>`say_hello()` |
+
+| **Data Structure**            | **Type** | **Description**                       | **Example (code line by line)**                                                               |
+| ----------------------------- | -------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **List**                      | Built-in | Ordered, mutable, allows duplicates   | my\_list = \[1, 2, 3, 4]<br>my\_list.append(5)<br>print(my\_list)  # Output: \[1, 2, 3, 4, 5] |
+| **Tuple**                     | Built-in | Ordered, immutable, allows duplicates | my\_tuple = (1, 2, 3)<br>print(my\_tuple\[0])  # Output: 1                                    |
+| **Set**                       | Built-in | Unordered, mutable, no duplicates     | my\_set = {1, 2, 2, 3}<br>print(my\_set)  # Output: {1, 2, 3}                                 |
+| **FrozenSet**                 | Built-in | Immutable version of set              | frozen = frozenset(\[1, 2, 3])<br>print(frozen)  # Output: frozenset({1, 2, 3})               |
+| **Dictionary (dict)**         | Built-in | Key-value pairs, mutable              | my\_dict = {'a': 1, 'b': 2}<br>print(my\_dict\['a'])  # Output: 1                             |
+| **String**                    | Built-in | Immutable sequence of characters      | text = "hello"<br>print(text\[1])  # Output: e                                                |
+| **Array (from array module)** | Module   | Efficient list for numeric data       | from array import array<br>arr = array('i', \[1, 2, 3])<br>print(arr\[0])  # Output: 1        |
+
+📚 User-defined Data Structures
+
+| **Data Structure**     | **Description**             | **Example (line by line)**                                                                                                                         |
+| ---------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stack (LIFO)**       | Last In First Out           | stack = \[]<br>stack.append(1)<br>stack.append(2)<br>stack.pop()  # Output: 2                                                                                        |
+| **Queue (FIFO)**       | First In First Out          | from collections import deque<br>queue = deque()<br>queue.append(1)<br>queue.popleft()  # Output: 1                                                                  |
+| **Linked List**        | Nodes connected in sequence | class Node:<br>  def **init**(self, data):<br>    self.data = data<br>    self.next = None<br>head = Node(1)<br>head.next = Node(2)<br>print(head.data)  # Output: 1 |
+| **Doubly Linked List** | Each node has prev and next | Similar to linked list, but with `prev` pointer too                                                                                                                  |
+| **Tree**               | Hierarchical structure      | class TreeNode:<br>  def **init**(self, value):<br>    self.value = value<br>    self.left = None<br>    self.right = None                                           |
+| **Graph**              | Nodes connected by edges    | graph = {<br>  'a': \['b', 'c'],<br>  'b': \['a', 'd'],<br>  'c': \['a'],<br>}<br>print(graph\['a'])  # Output: \['b', 'c']                                          |
+
+⚙️ Advanced Structures 
+| **Data Structure**             | **Module**    | **Example**                                                                                                                    |
+| ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **deque (Double-ended queue)** | `collections` | from collections import deque<br>dq = deque(\[1, 2, 3])<br>dq.appendleft(0)<br>print(dq)  # Output: deque(\[0, 1, 2, 3])       |
+| **defaultdict**                | `collections` | from collections import defaultdict<br>d = defaultdict(int)<br>d\['a'] += 1<br>print(d\['a'])  # Output: 1                     |
+| **OrderedDict**                | `collections` | from collections import OrderedDict<br>od = OrderedDict()<br>od\['a'] = 1<br>print(od)                                         |
+| **Counter**                    | `collections` | from collections import Counter<br>c = Counter("hello")<br>print(c)  # Output: Counter({'l': 2, 'h': 1, 'e': 1, 'o': 1})       |
+| **NamedTuple**                 | `collections` | from collections import namedtuple<br>Point = namedtuple('Point', 'x y')<br>p = Point(1, 2)<br>print(p.x)  # Output: 1         |
+| **Heap (Priority Queue)**      | `heapq`       | import heapq<br>heap = \[3, 1, 4]<br>heapq.heapify(heap)<br>heapq.heappush(heap, 2)<br>print(heapq.heappop(heap))  # Output: 1 |
 
 # Strings
 
@@ -497,3 +535,24 @@ This document summarizes all major types of input and output declarations in Pyt
 | **With multiple loops**       | Use nested loops in one line.                    | pairs = \[(x, y) for x in \[1, 2] for y in \[3, 4]]<br>print(pairs)  # Output: \[(1, 3), (1, 4), (2, 3), (2, 4)]                                        |
 | **Filter None or Empty**      | Clean up data.                                   | data = \['a', '', None, 'b']<br>cleaned = \[d for d in data if d]<br>print(cleaned)  # Output: \['a', 'b']                                              |
 | **Conditional Replace**       | Replace specific values.                         | nums = \[0, 1, 2, 0, 3]<br>replaced = \[x if x != 0 else -1 for x in nums]<br>print(replaced)  # Output: \[-1, 1, 2, -1, 3]                             |
+
+# Frozenset
+
+| Topic                                         | Description                                                  | Example Code                                                                                   | Output                                             |
+| --------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **1. Creating a frozenset**                   | Convert iterable (list, tuple, set, string) into a frozenset | `fs = frozenset([1, 2, 3, 2])`<br>`print(fs)`                                                  | `frozenset({1, 2, 3})`                             |
+| **2. Empty frozenset**                        | Create an empty frozenset                                    | `empty_fs = frozenset()`<br>`print(empty_fs)`                                                  | `frozenset()`                                      |
+| **3. From string**                            | Each character becomes an element                            | `fs = frozenset("abcabc")`<br>`print(fs)`                                                      | `frozenset({'c', 'a', 'b'})`                       |
+| **4. Set vs Frozenset**                       | Set is mutable, frozenset is immutable                       | `s = set([1, 2])`<br>`fs = frozenset([1, 2])`<br>`s.add(3)`<br>`# fs.add(3)` ← Error           | `s = {1, 2, 3}`<br>`# AttributeError for fs.add()` |
+| **5. Membership testing**                     | Check if item exists                                         | `fs = frozenset([1, 2, 3])`<br>`print(2 in fs)`<br>`print(5 in fs)`                            | `True`<br>`False`                                  |
+| **6. Iterating**                              | Use a loop to access elements                                | `fs = frozenset([10, 20, 30])`<br>`for i in fs:`<br>`    print(i)`                             | `10`<br>`20`<br>`30` (order may vary)              |
+| **7. Length**                                 | Use `len()` function                                         | `fs = frozenset([1, 2, 3])`<br>`print(len(fs))`                                                | `3`                                                |
+| **8. Set operations - Union**                 | Combine elements                                             | `a = frozenset([1, 2])`<br>`b = frozenset([2, 3])`<br>`print(a.union(b))`                      | `frozenset({1, 2, 3})`                             |
+| **9. Set operations - Intersection**          | Common elements                                              | `a = frozenset([1, 2, 3])`<br>`b = frozenset([2, 3, 4])`<br>`print(a.intersection(b))`         | `frozenset({2, 3})`                                |
+| **10. Set operations - Difference**           | Items in one not in the other                                | `a = frozenset([1, 2, 3])`<br>`b = frozenset([3, 4])`<br>`print(a.difference(b))`              | `frozenset({1, 2})`                                |
+| **11. Set operations - Symmetric Difference** | Items in either but not both                                 | `a = frozenset([1, 2, 3])`<br>`b = frozenset([2, 3, 4])`<br>`print(a.symmetric_difference(b))` | `frozenset({1, 4})`                                |
+| **12. Subset check**                          | Check if A is subset of B                                    | `a = frozenset([1, 2])`<br>`b = frozenset([1, 2, 3])`<br>`print(a.issubset(b))`                | `True`                                             |
+| **13. Superset check**                        | Check if A is superset of B                                  | `a = frozenset([1, 2, 3])`<br>`b = frozenset([2])`<br>`print(a.issuperset(b))`                 | `True`                                             |
+| **14. Disjoint check**                        | No common elements                                           | `a = frozenset([1, 2])`<br>`b = frozenset([3, 4])`<br>`print(a.isdisjoint(b))`                 | `True`                                             |
+| **15. Hashable nature**                       | Can be used as dict key                                      | `d = {frozenset([1, 2]): "value"}`<br>`print(d)`                                               | `{frozenset({1, 2}): 'value'}`                     |
+| **16. Immutable proof**                       | Cannot modify                                                | `fs = frozenset([1, 2])`<br>`# fs.add(3)`<br>`# fs.remove(2)`                                  | `AttributeError` for both                          |
