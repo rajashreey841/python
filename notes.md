@@ -14,6 +14,7 @@
 - [Conditional Statements](#conditional-statements)
 - [Loops](#loops)
 - [Functions](#functions)
+- [Different types of Data Structure](#different-types-of-data-structure)
 - [Strings](#strings)
 - [List](#list)
 - [Tuples](#tuples)
@@ -274,6 +275,8 @@ This document summarizes all major types of input and output declarations in Pyt
 | **13. Inner Function**            | Function defined inside another function.                   | `def outer():`<br>`    def inner():`<br>`        print("Inner function")`<br>`    inner()`<br>`outer()`                                                                                                                            |
 | **14. Decorators**                | Wraps a function to extend its behavior.                    | `def decorator(func):`<br>`    def wrapper():`<br>`        print("Before")`<br>`        func()`<br>`        print("After")`<br>`    return wrapper`<br>`@decorator`<br>`def say_hello():`<br>`    print("Hello")`<br>`say_hello()` |
 
+# Different types of Data Structure
+🧱 Built-in Data Structures
 | **Data Structure**            | **Type** | **Description**                       | **Example (code line by line)**                                                               |
 | ----------------------------- | -------- | ------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **List**                      | Built-in | Ordered, mutable, allows duplicates   | my\_list = \[1, 2, 3, 4]<br>my\_list.append(5)<br>print(my\_list)  # Output: \[1, 2, 3, 4, 5] |
@@ -295,7 +298,7 @@ This document summarizes all major types of input and output declarations in Pyt
 | **Tree**               | Hierarchical structure      | class TreeNode:<br>  def **init**(self, value):<br>    self.value = value<br>    self.left = None<br>    self.right = None                                           |
 | **Graph**              | Nodes connected by edges    | graph = {<br>  'a': \['b', 'c'],<br>  'b': \['a', 'd'],<br>  'c': \['a'],<br>}<br>print(graph\['a'])  # Output: \['b', 'c']                                          |
 
-⚙️ Advanced Structures 
+🏗️ Advanced Data Structures 
 | **Data Structure**             | **Module**    | **Example**                                                                                                                    |
 | ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | **deque (Double-ended queue)** | `collections` | from collections import deque<br>dq = deque(\[1, 2, 3])<br>dq.appendleft(0)<br>print(dq)  # Output: deque(\[0, 1, 2, 3])       |
