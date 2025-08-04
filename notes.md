@@ -132,7 +132,7 @@ This document summarizes all major types of input and output declarations in Pyt
 | | or | True or False → True | Logical OR |
 | | not | not True → False | Logical NOT |
 | Bitwise | & | 5 & 3 → 1 | AND |
-| | | | 5 | 3 → 7 | OR |
+| | \| | 5 \| 3 → 7 | OR |
 | | ^ | 5 ^ 3 → 6 | XOR |
 | | ~ | ~5 → -6 | NOT |
 | | << | 2 << 1 → 4 | Left Shift |
