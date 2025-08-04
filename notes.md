@@ -9,6 +9,7 @@
 
 - [Input and Output ](#input-and-output)
 - [Variables](#variables)
+- [Operators](#operators)
 - [Keywords](#kaywords)
 - [Data Types](#data-types)
 - [Conditional Statements](#conditional-statements)
